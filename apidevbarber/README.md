@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Configurando o Auth
+#### step::Criando Controllers e Models
 
 #### Config PHP intelephense 👇🏽
 
