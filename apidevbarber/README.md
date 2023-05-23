@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Populando com barbeiros aleatórios
+#### step::Listando os barbeiros
 
 #### Config PHP intelephense 👇🏽
 
