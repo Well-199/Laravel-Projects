@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Fazendo o não auteticado
+#### step::Populando com barbeiros aleatórios
 
 #### Config PHP intelephense 👇🏽
 
