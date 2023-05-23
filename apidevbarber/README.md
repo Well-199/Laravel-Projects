@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Fazendo login
+#### step::Fazendo o não auteticado
 
 #### Config PHP intelephense 👇🏽
 
