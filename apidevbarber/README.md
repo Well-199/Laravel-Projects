@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Listando os barbeiros
+#### step::Pegando a Key do Google Maps Geocoding
 
 #### Config PHP intelephense 👇🏽
 
