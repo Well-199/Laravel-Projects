@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Pegando a Key do Google Maps Geocoding
+#### step::Filtrando por localização
 
 #### Config PHP intelephense 👇🏽
 
