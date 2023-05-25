@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Filtrando por localização
+#### step::Criando paginação
 
 #### Config PHP intelephense 👇🏽
 
