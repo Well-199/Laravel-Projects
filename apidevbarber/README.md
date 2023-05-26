@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Criando paginação
+#### step::Pegando um barbeiro (2/3)
 
 #### Config PHP intelephense 👇🏽
 

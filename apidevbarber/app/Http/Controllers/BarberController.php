@@ -46,6 +46,12 @@ class BarberController extends Controller
         $lat = $request->input('lat');
         $lng = $request->input('lng');
         $city = $request->input('city');
+        $offset = $request->input('offset');
+
+        if(!$offset)
+        {
+            $offset = 0;
+        }
 
         if(!empty($city))
         {
@@ -79,6 +85,8 @@ class BarberController extends Controller
             POW(69.1 * (latitude - '.$lat.'), 2) +
             POW(69.1 * ('.$lng.' - longitude) * COS(latitude / 57.3), 2)) < ?', [10])
             ->orderBy('distance', 'ASC')
+            ->offset($offset)
+            ->limit(5)
             ->get();
 
         foreach($barbers as $bkey => $bvalue)
@@ -88,6 +96,55 @@ class BarberController extends Controller
 
         $array['data'] = $barbers;
         $array['loc'] = 'São Paulo';
+
+        return $array;
+    }
+
+    public function one($id)
+    {
+        $array = ['error' => ''];
+
+        $barber = Barber::find($id);
+
+        if($barber)
+        {
+            $barber['avatar'] = url('media/avatars/'.$barber['avatar']);
+            $barber['favorited'] = false;
+            $barber['photos'] = [];
+            $barber['services'] = [];
+            $barber['testimonials'] = [];
+            $barber['available'] = [];
+
+            // Pegando as fotos do barbeiro
+            $barber['photos'] = BarberPhotos::select(['id', 'url'])->where('id_barber', $barber->id)->get();
+
+            foreach($barber['photos'] as $bpkey => $bpvalue)
+            {
+                $barber['photos'][$bpkey]['url'] = url('media/uploads/'.$barber['photos'][$bpkey]['url']);
+            }
+
+            // Pegando os servicos do barbeiro
+            $barber['services'] = BarberServices::select(['id', 'name', 'price'])
+                ->where('id_barber', $barber->id)
+                ->get();
+
+            // Pegando os depoimentos do barbeiro
+            $barber['testimonials'] = BarberTestimonial::select(['id', 'name', 'rate', 'body'])
+                ->where('id_barber', $barber->id)
+                ->get();
+
+            // Pegando os horarios disponiveis do barbeiro
+
+
+
+
+            $array['data'] = $barber;
+
+        } else {
+            $array['error'] = 'Barbeiro não existe /ou id invalido';
+            return $array;
+        }
+
 
         return $array;
     }
