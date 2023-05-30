@@ -2,7 +2,7 @@
 
 #### cd documents/wellsistemasweb/Laravel-Projects/apidevbarber
 
-#### step::Pegando um barbeiro (2/3)
+#### step::Pegando um barbeiro (3/3)
 
 #### Config PHP intelephense 👇🏽
 

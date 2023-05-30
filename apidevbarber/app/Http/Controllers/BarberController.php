@@ -134,9 +134,29 @@ class BarberController extends Controller
                 ->get();
 
             // Pegando os horarios disponiveis do barbeiro
+            $availability = [];
 
+            $avails = BarberAvailability::where('id_barber', $barber->id)->get();
+            $availWeekdays = [];
 
+            foreach($avails as $item)
+            {
+                $availWeekdays[$item['weekday']] = explode(',', $item['hours']);
+            }
 
+            $appointments = [];
+            $appQuery = UserAppointment::where('id_barber', $barber->id)
+                ->whereBetween('ap_datetime', [
+                    date('Y-m-d').' 00:00:00',
+                    date('Y-m-d', strtotime('+20 days')).' 23:59:59'
+                ])
+                ->get();
+            foreach($appQuery as $appItem)
+            {
+                $appointments[] = $appItem['ap_datetime'];
+            }
+
+            $barber['available'] = $availability;
 
             $array['data'] = $barber;
 
